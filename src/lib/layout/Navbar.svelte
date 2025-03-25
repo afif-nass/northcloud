@@ -1,0 +1,71 @@
+<script lang="ts">
+	import Logo from '$components/brand/Logo.svelte';
+	import { MobileMenuState } from '$lib/state/mobileMenu.svelte';
+	import { IconMenu, IconX } from '@tabler/icons-svelte';
+	import { fade } from 'svelte/transition';
+
+	const mobileMenu = MobileMenuState.get();
+
+	type Link = {
+		path: string;
+		label: string;
+		newTab?: boolean;
+	};
+
+	const links: Link[] = [
+		{
+			path: '/about',
+			label: 'About'
+		},
+		{
+			path: 'https://bloggeney1.hashnode.dev/',
+			newTab: true,
+			label: 'Blog'
+		},
+		{
+			path: '/whitepaper.pdf',
+			newTab: true,
+			label: 'Whitepaper'
+		},
+		{
+			path: 'https://airtable.com/appszbSL9vv2LcQww/pagTliTGfOOWcIOsV/form',
+			newTab: true,
+			label: 'Contact'
+		}
+	];
+</script>
+
+<div class="top-0 z-10 flex h-30 w-full items-center justify-center">
+	<nav class="text-md contain flex h-full w-full items-center justify-center">
+		<Logo />
+		<!-- <button
+			class="nav-item showNavLinks:hidden col-start-3 cursor-pointer justify-self-end"
+			name="menu"
+			aria-label="menu"
+			onclick={() => mobileMenu.toggle()}
+		>
+			{#if mobileMenu.isOpen}
+				<div in:fade={{ duration: 250 }}>
+					<IconX />
+				</div>
+			{:else}
+				<div in:fade={{ duration: 250 }}>
+					<IconMenu />
+				</div>
+			{/if}
+		</button>
+		<div class="showNavLinks:flex hidden items-center justify-end gap-4">
+			<div class="flex items-center gap-8">
+				{#each links as link}
+					<a
+						class="hover:text-fg text-muted transition-colors"
+						target={link.newTab ? '_blank' : '_self'}
+						href={link.path}
+					>
+						{link.label}
+					</a>
+				{/each}
+			</div>
+		</div> -->
+	</nav>
+</div>

@@ -1,0 +1,116 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+:root {
+	--max-w-site: 900px;
+	--site-padding: 1rem;
+	--site-padding-sm: 3rem;
+}
+
+@theme inline {
+	--font-sans: Red Hat Mono, sans-serif;
+	/* Primary */
+	--color-nebula: #d591fe;
+	--color-nebula-100: #f8dafe;
+	--color-light: #f8fcfd;
+	--color-bruma-800: #2b2f34;
+	--color-zenith: #1e2125;
+	/* Accent */
+	--color-aurora: #00ffd1;
+	/* Gradient Colors */
+	--color-grad-start: #9747ff; /* Colibri */
+	--color-grad-end: #00ffd1; /* Aurora */
+	/* Utils */
+	--color-body: #fff;
+	--color-primary: var(--color-nebula);
+	--color-secondary: var(--color-aurora);
+	--color-bg: var(--color-light);
+	--color-fg: var(--color-zenith);
+	--color-muted: --alpha(var(--color-bruma-800) / 80%);
+	--color-border: --alpha(var(--color-slate-100) / 80%);
+
+	--breakpoint-showNavLinks: 870px;
+	--animate-grad: animation 2s ease infinite;
+	--animate-blob: blob 12s ease-in-out infinite;
+
+	--shadow-custom: 0px 1px 3px 0px rgba(0, 0, 0, 0.02), 0px 1px 2px 0px rgba(0, 0, 0, 0.02);
+
+	@keyframes blob {
+		0% {
+			transform: translate(0, 0);
+		}
+		25% {
+			transform: translate(10%, 0%);
+		}
+		50% {
+			transform: translate(-30%, 0);
+		}
+		75% {
+			transform: translate(15%, -15%);
+		}
+		100% {
+			transform: translate(0, 0);
+		}
+	}
+
+	@keyframes animation {
+		0%,
+		100% {
+			background-position: 10% 10%;
+		}
+		50% {
+			background-position: 50% 50%;
+		}
+	}
+}
+
+@layer utilities {
+	.site-padding {
+		padding-left: var(--site-padding);
+		padding-right: var(--site-padding);
+	}
+
+	@media (min-width: theme('screens.sm')) {
+		.site-padding {
+			padding-left: var(--site-padding-sm);
+			padding-right: var(--site-padding-sm);
+		}
+	}
+
+	.contain {
+		padding-left: var(--site-padding);
+		padding-right: var(--site-padding);
+		width: 100%;
+		max-width: var(--max-w-);
+	}
+}
+
+@layer components {
+	.card {
+		display: flex;
+		border-radius: theme('borderRadius.xl');
+		background-image: linear-gradient(
+			to bottom,
+			theme('colors.slate.200'),
+			theme('colors.slate.50')
+		);
+		box-shadow: theme('boxShadow.xs');
+	}
+}
+
+body {
+	color: theme('--color-fg');
+	margin: auto;
+	display: flex;
+	width: 100%;
+	max-width: var(--max-w-site);
+	flex-direction: column;
+	background-color: var(--color-body);
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+	font-weight: 400 !important;
+}
