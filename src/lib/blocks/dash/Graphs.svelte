@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { IconChartLine } from '@tabler/icons-svelte';
 	import type { Stats } from '$lib/types/stats';
 	import { AgCharts, type AgCartesianChartOptions } from 'ag-charts-community';
 	import { onMount } from 'svelte';
@@ -9,6 +10,7 @@
 	const computedStyle = getComputedStyle(document.documentElement);
 	const secondary = computedStyle.getPropertyValue('--color-secondary');
 	const fg = computedStyle.getPropertyValue('--color-fg');
+	const muted = computedStyle.getPropertyValue('--color-bruma-800');
 	const background = {
 		fill: 'transparent'
 	};
@@ -27,8 +29,9 @@
 			},
 			theme: {
 				params: {
+					fontFamily: 'Red Hat Mono, sans-serif',
 					fontSize: 12,
-					foregroundColor: fg,
+					foregroundColor: muted,
 					axisColor: 'transparent',
 					gridLineColor: '#00000010'
 				}
@@ -65,8 +68,11 @@
 </script>
 
 {#if browser}
-	<div class="mt-5 grid gap-5 *:*:h-[300px] *:*:min-w-full *:border-none *:bg-none *:shadow-none">
-		<h2 class="ml-5 text-left text-2xl font-medium tracking-tight">Monthly Savings</h2>
+	<div class="mt-5 grid gap-5">
+		<div class="ml-5 flex items-center gap-3 text-2xl">
+			<IconChartLine size={32} />
+			<h2 class="text-left font-medium tracking-tight">Monthly Savings</h2>
+		</div>
 		<div id="monthlySavingsChart"></div>
 		<!-- <Card><div id="savingsByServicePieChart"></div></Card>
 		<Card><div id="dailySavingsChart"></div></Card> -->
