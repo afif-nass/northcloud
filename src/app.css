@@ -22,7 +22,7 @@
 	--color-grad-start: #9747ff; /* Colibri */
 	--color-grad-end: #00ffd1; /* Aurora */
 	/* Utils */
-	--color-body: #fff;
+	--color-body: --alpha(var(--color-light) / 50%);
 	--color-primary: var(--color-nebula);
 	--color-secondary: var(--color-aurora);
 	--color-bg: var(--color-light);

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { cn } from '$lib/helpers/utils';
+	import { browser } from '$app/environment';
 	import NumberFlow, { continuous } from '@number-flow/svelte';
 	import { onMount } from 'svelte';
 	import { cubicInOut } from 'svelte/easing';
@@ -37,14 +38,16 @@
 <!-- <h1 class="py-1 text-5xl leading-snug tracking-tight tabular-nums {classes}">
 	{prefix}{number(tweenedValue.current)}{@render children?.()}
 </h1> -->
-<NumberFlow
-	class={cn('text-5xl', classes)}
-	plugins={[continuous]}
-	{prefix}
-	spinTiming={{
-		duration: 1500,
-		easing: 'ease-out'
-	}}
-	{value}
-	{format}
-/>
+{#if browser}
+	<NumberFlow
+		class={cn('text-5xl', classes)}
+		plugins={[continuous]}
+		{prefix}
+		spinTiming={{
+			duration: 1500,
+			easing: 'ease-out'
+		}}
+		{value}
+		{format}
+	/>
+{/if}

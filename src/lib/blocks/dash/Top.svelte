@@ -30,7 +30,7 @@
 	]);
 </script>
 
-<div class="flex flex-col gap-2 md:flex-row">
+<div class=" flex flex-col gap-3 md:flex-row">
 	{#each bigStats as { value, label, icon: Icon, grad, pixelColor, img }, i}
 		<Card classes="overflow-hidden relative w-full flex-col h-40 px-6 justify-center">
 			<Pixels
@@ -50,7 +50,7 @@
 				class="bg-gradient-to-r {grad} z-1 mb-4 h-[5px] w-full max-w-[50%] rounded-full to-transparent opacity-30"
 			></div>
 			<div class="flex flex-col">
-				<div class="mt-2 flex items-center gap-2 text-muted *:text-xs">
+				<div class="mt-2 flex items-center gap-2 text-muted/80 *:text-xs">
 					<Icon class="mb-[2px] size-4" />
 					<p class="font-semibold uppercase tracking-widest">{label}</p>
 				</div>
@@ -62,8 +62,7 @@
 						<Stat
 							format={{ style: 'percent', maximumFractionDigits: 2, signDisplay: 'always' }}
 							val={overview.percentageChange / 100}
-							classes={'text-3xl mb-[10px] transition-colors duration-300 ' +
-								(overview.percentageChange < 0 ? 'text-red-500' : 'text-emerald-500')}
+							classes={'text-3xl text-primary mb-[10px] transition-colors duration-300 '}
 						/>
 					</div>
 				{/if}
@@ -71,3 +70,5 @@
 		</Card>
 	{/each}
 </div>
+
+<!-- (overview.percentageChange < 0 ? 'text-red-500' : 'text-emerald-500') -->
