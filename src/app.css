@@ -31,6 +31,7 @@
 	--color-border: --alpha(var(--color-slate-100) / 80%);
 
 	--breakpoint-showNavLinks: 870px;
+	--breakpoint-xs: 400px;
 	--animate-grad: animation 2s ease infinite;
 	--animate-blob: blob 12s ease-in-out infinite;
 

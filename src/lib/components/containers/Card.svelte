@@ -6,7 +6,7 @@
 
 <div
 	class={cn(
-		'border-border relative flex w-full overflow-hidden rounded-lg border bg-gradient-to-b from-white to-slate-50/80 shadow-xs shadow-slate-100',
+		'border-border shadow-xs relative flex w-full overflow-hidden rounded-lg border bg-gradient-to-b from-white to-slate-50/40 shadow-slate-100',
 		classes
 	)}
 >

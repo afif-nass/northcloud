@@ -48,6 +48,7 @@
 		"clsx": "^2.1.1",
 		"cobe": "^0.6.3",
 		"date-fns": "^4.1.0",
+		"layerchart": "^1.0.8",
 		"lucide-svelte": "^0.483.0",
 		"svelte-fast-marquee": "^0.8.0",
 		"svelte-motion": "^0.12.2",
